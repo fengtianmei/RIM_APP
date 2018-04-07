@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?><?xml-stylesheet type='text/xsl' href='Pseudo.xsl'?><!--Skyline TerraBuilder Pseudo File Copyright (c) 2002)-->
+<PseudoColors>
+    <Caption>Grape</Caption>
+    <GUID>E220FD4E-F42B-488b-A031-1E161851E5B4</GUID>
+    <Range>
+        <Max>4000.000000</Max>
+        <Min>-400.000000</Min>
+    </Range>
+    <Data>
+        <Num>3</Num>
+        <Node>
+            <Val>4000.000000</Val>
+            <Color>a12373</Color>
+        </Node>
+        <Node>
+            <Val>600.000000</Val>
+            <Color>ffffbf</Color>
+        </Node>
+        <Node>
+            <Val>-400.000000</Val>
+            <Color>636e2e</Color>
+        </Node>
+    </Data>
+</PseudoColors>

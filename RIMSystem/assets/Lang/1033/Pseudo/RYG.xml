@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?><?xml-stylesheet type='text/xsl' href='Pseudo.xsl'?><!--Skyline TerraBuilder Pseudo File Copyright (c) 2002)-->
+<PseudoColors>
+    <Caption>RYG</Caption>
+    <GUID>3B515CE8-DFBE-4b3a-9030-704D2CE2CDDB</GUID>
+    <Range>
+        <Max>2000.000000</Max>
+        <Min>0.000000</Min>
+    </Range>
+    <Data>
+        <Num>3</Num>
+        <Node>
+            <Val>2000.000000</Val>
+            <Color>00FF00</Color>
+        </Node>
+        <Node>
+            <Val>1000.000000</Val>
+            <Color>FFFF00</Color>
+        </Node>
+        <Node>
+            <Val>0.000000</Val>
+            <Color>FF0000</Color>
+        </Node>
+    </Data>
+</PseudoColors>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/header_height"
+    android:background="@drawable/header_background"
+    android:gravity="center_vertical"
+    android:layout_margin="@dimen/default_margin">
+
+    <LinearLayout
+        android:id="@+id/header_back"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:paddingLeft="10dp">
+
+        <ImageView
+            android:contentDescription="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_large"
+            android:paddingRight="10dp" />
+
+        <View
+            android:layout_width="@dimen/header_back_separator_width"
+            android:layout_height="@dimen/header_height"
+            android:background="#ff505050" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/header_icon"
+            android:contentDescription="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/places"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dummy text"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_large" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/header_search"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/search"
+        android:padding="9dp" />
+
+</RelativeLayout>
+

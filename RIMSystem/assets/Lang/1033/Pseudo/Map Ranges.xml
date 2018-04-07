@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?><?xml-stylesheet type='text/xsl' href='Pseudo.xsl'?><!--Skyline TerraBuilder Pseudo File Copyright (c) 2002)-->
+<PseudoColors>
+    <Caption>Map Ranges</Caption>
+    <GUID>7DEEFFE4-16C2-42a7-BEE1-001B3F99053C</GUID>
+    <Range>
+        <Max>6295.000000</Max>
+        <Min>-327.000000</Min>
+    </Range>
+    <Data>
+        <Num>24</Num>
+
+        <Node>
+            <Val>6295.000000</Val>
+            <Color>735e59</Color>
+        </Node>
+        <Node>
+            <Val>4501.000000</Val>
+            <Color>735e59</Color>
+        </Node>
+
+        <Node>
+            <Val>4500.999999</Val>
+            <Color>270700</Color>
+        </Node>
+        <Node>
+            <Val>1801.000000</Val>
+            <Color>270700</Color>
+        </Node>
+
+        <Node>
+            <Val>1800.999999</Val>
+            <Color>541E00</Color>
+        </Node>
+        <Node>
+            <Val>801.000000</Val>
+            <Color>541E00</Color>
+        </Node>
+
+        <Node>
+            <Val>800.999999</Val>
+            <Color>80290d</Color>
+        </Node>
+        <Node>
+            <Val>401.000000</Val>
+            <Color>80290d</Color>
+        </Node>
+
+        <Node>
+            <Val>400.999999</Val>
+            <Color>cc4429</Color>
+        </Node>
+        <Node>
+            <Val>251.000000</Val>
+            <Color>cc4429</Color>
+        </Node>
+
+        <Node>
+            <Val>250.999999</Val>
+            <Color>ff9c33</Color>
+        </Node>
+        <Node>
+            <Val>151.000000</Val>
+            <Color>ff9c33</Color>
+        </Node>
+
+        <Node>
+            <Val>150.999999</Val>
+            <Color>FFC384</Color>
+        </Node>
+        <Node>
+            <Val>101.000000</Val>
+            <Color>FFC384</Color>
+        </Node>
+
+        <Node>
+            <Val>100.999999</Val>
+            <Color>fbfcb3</Color>
+        </Node>
+        <Node>
+            <Val>51.000000</Val>
+            <Color>fbfcb3</Color>
+        </Node>
+
+        <Node>
+            <Val>50.999999</Val>
+            <Color>ace573</Color>
+        </Node>
+        <Node>
+            <Val>1.000000</Val>
+            <Color>ace573</Color>
+        </Node>
+
+        <Node>
+            <Val>0.999999</Val>
+            <Color>1c79c7</Color>
+        </Node>
+        <Node>
+            <Val>-49.000000</Val>
+            <Color>1c79c7</Color>
+        </Node>
+
+        <Node>
+            <Val>-50.999999</Val>
+            <Color>0133F8</Color>
+        </Node>
+        <Node>
+            <Val>-179.000000</Val>
+            <Color>0133F8</Color>
+        </Node>
+
+        <Node>
+            <Val>-180.999999</Val>
+            <Color>0d1178</Color>
+        </Node>
+        <Node>
+            <Val>-327.000000</Val>
+            <Color>0d1178</Color>
+        </Node>
+
+    </Data>
+</PseudoColors>

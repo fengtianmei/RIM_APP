@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.skyline.terraexplorer">
+
+    <uses-feature
+        android:glEsVersion="0x00030000"
+        android:required="true" />
+
+    <!-- 系统权限被分为两类：normal 和 dangerous： -->
+    <!-- 1> normal 权限不会直接涉及用户的隐私。如果你的应用在manifest中列出这个normal权限，那么系统会自动同意这个权限。 -->
+    <!-- 2>dangerous权限能够让应用去访问用户的隐私数据。如果你的应用在manifest中列出了一个normal权限，系统会自动同意这个权限， -->
+    <!-- 如果你在manifest中列出了一个dangerous权限，则需要征求用户的批准。 -->
+
+
+    <!-- Normals Permissions. -->
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Dangerous Permissions. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 在SD卡中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".TEApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppBaseTheme">
+        <provider
+            android:name=".SearchSuggestionProvider"
+            android:authorities="com.skyline.terraexplorer.SearchSuggestionProvider"
+            android:exported="false" />
+
+        <!-- <meta-data -->
+        <!-- android:name="android.app.default_searchable" -->
+        <!-- android:value=".SearchActivity" /> -->
+
+        <activity
+            android:name="com.skyline.rim.activitys.TeTreeActivity"
+            android:label="@string/title_activity_layers"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name="com.skyline.rim.activitys.MainActivity"
+            android:fitsSystemWindows="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.skyline.rim.activitys.LoginActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.skyline.rim.activitys.WelcomeActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.skyline.rim.activitys.WebActivity"
+            android:launchMode="standard"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".controllers.TEMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.rim.activitys.MainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.EditFavoriteActivity"
+            android:label="@string/title_activity_favorites"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.EditFavoriteSelectIconActivity"
+            android:label="@string/title_activity_favorites_icons"
+            android:parentActivityName=".controllers.EditFavoriteActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.EditFavoriteActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.SearchActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_search"
+            android:launchMode="singleTop"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controllers.PlacesActivity"
+            android:label="@string/title_activity_places"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.LayersActivity"
+            android:label="@string/title_activity_layers"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.PresentationStepsActivity"
+            android:label="@string/title_activity_layers"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.AboutActivity"
+            android:label="@string/mm_more_about"
+            android:parentActivityName="com.skyline.rim.activitys.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.rim.activitys.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.skyline.rim.activitys.PathSettingActivity"
+            android:label="@string/mm_more_about"
+            android:parentActivityName="com.skyline.rim.activitys.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.rim.activitys.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.skyline.rim.activitys.PermissionSettingActivity"
+            android:parentActivityName="com.skyline.rim.activitys.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.rim.activitys.MainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.ProjectsActivity"
+            android:label="@string/title_activity_projects"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.FeatureAttributesActivity"
+            android:label="@string/title_activity_attributes"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.WhiteboardListActivity"
+            android:label="@string/title_activity_whiteboards"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.TerrainProfileActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_terrain_profile"
+            android:parentActivityName=".controllers.TEMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.skyline.terraexplorer.controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.SsEditActivity"
+            android:label="@string/title_activity_ss_edit" />
+    </application>
+
+</manifest>

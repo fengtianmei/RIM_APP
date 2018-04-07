@@ -1,0 +1,186 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    tools:context=".controllers.TEMainActivity">
+
+    <com.skyline.terraexplorer.views.TEView
+        android:id="@+id/main_teview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.skyline.terraexplorer.views.TEView>
+
+    <ImageButton
+        android:id="@+id/mainButton"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="@dimen/main_button_margin"
+        android:layout_marginLeft="@dimen/main_button_margin"
+        android:background="@drawable/control_with_border"
+        android:padding="@dimen/button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/openbutton"></ImageButton>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:layout_marginLeft="@dimen/main_button_margin"
+        android:layout_marginRight="@dimen/main_button_margin"
+        android:layout_marginTop="@dimen/main_button_margin"
+        android:background="@drawable/round_rect"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ImageButton
+        android:id="@+id/menuButton"
+        android:layout_width="@dimen/header_height"
+        android:layout_height="@dimen/header_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/main_button_margin"
+        android:layout_marginTop="@dimen/main_button_margin"
+        android:background="#00000000"
+        android:paddingRight="@dimen/button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/menu"></ImageButton>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/main_button_margin"
+        android:layout_marginRight="@dimen/main_button_margin"
+        android:layout_marginTop="@dimen/main_button_margin"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="@dimen/header_height"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/color_control_background_press"
+            android:entries="@array/spingarr"
+            android:textSize="@dimen/font_size_normal" />
+
+        <EditText
+            android:id="@+id/main_raiway_pos_text"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="@dimen/header_height"
+            android:gravity="center"
+            android:hint="@string/info_mileage"
+            android:inputType="number"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/colorTitleBackgGround"
+            android:textSize="@dimen/font_size_normal"
+            android:theme="@style/tsdiEditText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/header_height"
+            android:gravity="center_vertical"
+            android:text="@string/meters"
+            android:textColor="@color/color_control_background_press"
+            android:layout_marginLeft="@dimen/main_button_margin"
+            android:textSize="@dimen/font_size_normal" />
+
+        <ImageView
+            android:id="@+id/main_button_location"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="@dimen/header_height"
+            android:layout_marginLeft="@dimen/main_button_margin"
+            android:padding="@dimen/button_padding"
+            android:scaleType="fitCenter"
+            android:src="@drawable/locate" />
+    </LinearLayout>
+
+    <com.skyline.terraexplorer.views.MainMenuView
+        android:id="@+id/main_menu"
+        android:layout_width="@dimen/main_menu_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/main_button_margin" />
+
+    <RelativeLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_portrait"
+            android:contentDescription="@null"
+            android:scaleType="centerInside" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="40dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="60dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/loadingView_progressbar"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:indeterminateOnly="true" />
+
+                    <TextView
+                        android:id="@+id/loadingView_loading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loading"
+                        android:textColor="@color/color_control_background"
+                        android:textSize="@dimen/font_size_normal" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/loadingView_projectName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_control_background"
+                    android:layout_marginRight="10dp"
+                    android:textSize="@dimen/font_size_normal" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.skyline.terraexplorer.views.MessageView
+        android:id="@+id/main_message_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

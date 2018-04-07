@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_view_background"
+    android:orientation="vertical"
+    tools:context=".TerrainProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_margin"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/profile_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/profile_fullscreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/default_margin"
+                android:contentDescription="@null"
+                android:src="@drawable/fullscreen" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/profile_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profile_total_aerial_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:text="@string/profile_total_aerial_distance"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_total_horizontal_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:text="@string/profile_total_horizontal_distance"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_total_ground_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:text="@string/profile_total_ground_distance"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffffff"
+                android:padding="@dimen/default_margin"
+                android:text="@string/profile_show"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_show_max_slopes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:drawableLeft="@drawable/checkbox_off"
+                android:gravity="center"
+                android:text="@string/profile_show_max_slopes"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_show_max_altitude"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/checkbox_off"
+                android:gravity="center"
+                android:text="@string/profile_show_max_altitude"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_show_waypoints"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/checkbox_off"
+                android:gravity="center"
+                android:text="@string/profile_show_waypoints"
+                android:textSize="@dimen/font_size_normal" />
+
+            <TextView
+                android:id="@+id/profile_show_scale_altitude"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/checkbox_off"
+                android:gravity="center"
+                android:text="@string/profile_show_scale_altitude"
+                android:textSize="@dimen/font_size_normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

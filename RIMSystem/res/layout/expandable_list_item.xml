@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/table_row_height"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/default_margin">
+
+    <ImageView
+        android:id="@+id/table_cell_icon"
+        android:layout_width="@dimen/table_row_height"
+        android:layout_height="@dimen/table_row_height"
+        android:contentDescription="@null"
+        android:padding="@dimen/button_padding"
+        android:scaleType="fitCenter"
+        android:src="@drawable/play" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/table_cell_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text"
+            android:textColor="#ff6D6D6D"
+            android:textSize="@dimen/font_size_normal" />
+
+        <TextView
+            android:id="@+id/table_cell_detail_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail text"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/font_size_small" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/table_cell_accessoryView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/table_cell_accessoryIcon"
+            android:layout_width="@dimen/table_row_height"
+            android:layout_height="@dimen/table_row_height"
+            android:contentDescription="@null"
+            android:padding="@dimen/button_padding"
+            android:scaleType="fitCenter"
+            android:src="@drawable/closebutton" />
+
+        <ProgressBar
+            android:id="@+id/table_cell_accessoryProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/table_cell_accessoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accessory Text"
+            android:textColor="#ff6D6D6D"
+            android:textSize="@dimen/font_size_normal"
+            android:gravity="center"
+            android:layout_margin="@dimen/default_margin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/table_cell_contextMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/color_control_background"
+        android:orientation="horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">铁建管理移动端</string>
+    <string name="yes">是</string>
+    <string name="no">不是</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="all">所有的</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="loading">正在加载数据...</string>
+    <string name="initializing">初始化应用</string>
+    <string name="loading_error_title">加载地图数据失败，通常是如下原因：1.文件路径不正确 2.网络连接状况不好 3.文件不是移动格式文件</string>
+    <string name="meters">米</string>
+    <string name="meters_abbr">m</string>
+    <string name="km">公里</string>
+    <string name="km_abbr">km</string>
+    <string name="feet">英尺</string>
+    <string name="feet_abbr">f</string>
+    <string name="mile">英里</string>
+    <string name="mile_abbr">mile</string>
+    <string name="square_meter">平方公里</string>
+    <string name="square_km">km²</string>
+    <string name="square_feet">feet²</string>
+    <string name="square_mile">mile²</string>
+    <string name="back">返回</string>
+    <string name="rename">重命名</string>
+    <string name="mm_menu">主菜单</string>
+    <string name="mm_analyze">分析</string>
+    <string name="mm_gps">GPS</string>
+    <string name="mm_gps_on">我的位置 On</string>
+    <string name="mm_gps_off">我的位置 Off</string>
+    <string name="mm_more_about">关于</string>
+    <string name="mm_offline_function">离线功能</string>
+    <string name="mm_more_share">实景快照</string>
+    <string name="mm_analyze_distance">距离</string>
+    <string name="mm_analyze_area">面积</string>
+    <string name="mm_analyze_viewshed">视域分析</string>
+    <string name="mm_analyze_line_of_sight">视线分析</string>
+    <string name="mm_analyze_profile">剖面分析</string>
+    <string name="mm_flood_water">水淹分析</string>
+    <string name="mm_calculate_volume">填挖方分析</string>
+    <string name="mm_analyze_shadow">阴影分析</string>
+    <string name="mm_whiteboard">白板</string>
+
+    <!-- Tutorial -->
+
+    <!-- About -->
+    <string name="about_version">版本 %1$s (%2$s)</string>
+    <string name="about_patents">铁路建设管理移动平台由中国铁路设计集团有限公司开发研制，平台以三维GIS为平台支撑，融合BIM技术，为铁路建设工程提供可视化的管理应用。\n未经允许，本产品不许转载、安装和使用。
+        \n\n\n\nCopyright:
+		© 2017 铁路建设管理平台移动端 \n版权所有，违者必究\n\n</string>
+    <string name="about_info_email">邮件地址: hanzujie@hotmail.com</string>
+    <string name="about_support_email">技术支持:  hanzujie@hotmail.com</string>
+    <string name="about_close">关闭</string>
+    <string name="about_send_email">发送邮件...</string>
+
+    <!-- Places -->
+
+    <string name="title_activity_places">位置</string>
+    <string name="places_favorites">收藏</string>
+    <string name="places_locations">定位</string>
+    <string name="places_presentations">演示</string>
+    <string name="places_delete_location">删除这个定位?</string>
+
+    <!-- Favorites -->
+
+    <string name="title_activity_favorites">收藏</string>
+    <string name="favorites_default_name">我的位置</string>
+    <string name="favorite_icon_star_red">红星</string>
+    <string name="favorite_icon_star_green">绿星</string>
+    <string name="favorite_icon_star_purple">紫星</string>
+    <string name="favorite_icon_star_blue">蓝星</string>
+    <string name="favorite_icon_star_yellow">黄星</string>
+    <string name="favorite_name">名称</string>
+    <string name="favorite_show_on_3d">显示3D视图</string>
+    <string name="favorite_icon_name">图标</string>
+    <string name="favorite_description">注释</string>
+    <string name="favorites_item_not_found">从收藏条加载数据失败</string>
+    <!-- Favorites Select Icon -->
+
+    <string name="title_activity_favorites_icons">选择图标</string>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">设置</string>
+    <string name="settings_units">单位</string>
+    <string name="settings_units_meters">米 </string>
+    <string name="settings_units_feet">英尺</string>
+    <string name="settings_section_view">视图</string>
+    <string name="settings_navigation_buttons">导航按钮</string>
+    <string name="settings_navigation_buttons_on">开</string>
+    <string name="settings_navigation_buttons_off">关</string>
+    <string name="settings_underground">地下</string>
+    <string name="settings_underground_button">地下模式</string>
+    <string name="settings_underground_button_on">开</string>
+    <string name="settings_underground_button_off">关</string>
+    <string name="settings_myposition">我的方位</string>
+    <string name="settings_myposition_on">显示我的方位图标</string>
+    <string name="settings_myposition_off">不显示我的方位图标</string>
+    <string name="settings_sunlight_on">日光 启用</string>
+    <string name="settings_sunlight_off">日光 关闭</string>
+    <string name="settings_gpstrail">显示 GPS 轨迹</string>
+    <string name="settings_gpstrail_on">显示 gps轨迹在地形上</string>
+    <string name="settings_gpstrail_off">不显示 gps轨迹在地形上</string>
+
+    <!-- Projects -->
+
+    <string name="title_activity_projects">项目</string>
+    <string name="projects_sg_usa"> </string>
+    <string name="projects_sg_usa_path"> </string>
+    <string name="projects_enter_url">输入 url 加载web工程...</string>
+    <string name="projects_current">[加载]</string>
+
+    <!-- Layers -->
+
+    <string name="title_activity_layers">图层</string>
+    <string name="layers_objects">修改地形对象</string>
+    <string name="layers_mesh_layers">3D图层</string>
+    <string name="layers_feature_layers">要素图层</string>
+    <string name="layers_raster_layers">影像图层</string>
+    <string name="layers_contour_map">等高线图层</string>
+    <string name="layers_slope_map">坡度图层</string>
+    <string name="layers_up">[上]</string>
+    <string name="layers_show_by_group">按组排序</string>
+    <string name="layers_show_by_type">按类型排序</string>
+
+    <!-- Search -->
+
+    <string name="title_activity_search">搜索</string>
+    <string name="search_layers">图层</string>
+    <string name="search_places">位置</string>
+    <string name="search_hint">东方明珠</string>
+
+    <!-- Location tracker -->
+
+    <string name="locationTracker_enable">启用</string>
+    <string name="locationTracker_alert_title">提高定位精度</string>
+    <string name="locationTracker_alert_message">打开定位服务,使访问你的位置</string>
+    <string name="locationTracker_alert_message_gps_only">打开GPS提高定位精度</string>
+    <string name="locationTracker_alert_nogps_title">GPS没有找到</string>
+    <string name="locationTracker_alert_nogps_message">TerraExplorer需要高精度定位服务</string>
+
+    <!-- Presentation steps -->
+
+    <string name="title_activity_presentation_steps">演示步骤</string>
+
+    <!-- distance and profile tool -->
+
+    <string name="title_activity_terrain_profile">地形剖面</string>
+    <string name="measure_distance_aerial">总空中距离: %s</string>
+    <string name="measure_distance_horizontal">总水平距离: %s</string>
+    <string name="measure_distance_ground">总地面距离: %s</string>
+    <string name="measure_distance_elevation">高差: %s</string>
+    <string name="measure_distance_slope">坡度: %.2f °</string>
+    <string name="profile_x">X</string>
+    <string name="profile_y">Y</string>
+    <string name="profile_elevation">高度</string>
+    <string name="profile_minSlope">最小 坡度</string>
+    <string name="profile_maxSlope">最大 坡度</string>
+    <string name="profile_total_aerial_distance">总空中距离: %s</string>
+    <string name="profile_total_horizontal_distance">总水平距离: %s</string>
+    <string name="profile_total_ground_distance">总地面距离: %s</string>
+    <string name="profile_show">显示</string>
+    <string name="profile_show_max_slopes">最大坡度</string>
+    <string name="profile_show_max_altitude">最小/最大 高度</string>
+    <string name="profile_show_waypoints">途径点</string>
+    <string name="profile_show_scale_altitude">高度扩展到全高度</string>
+
+    <!-- measure area tool -->
+
+    <string name="measure_area_area">面积: %s</string>
+    <string name="measure_area_perimeter">周长: %s</string>
+    <string name="measure_area_ground">地表面积: %s</string>
+
+    <!-- viewshed tool -->
+
+    <string name="viewshed_tool_fov">水平视角: %1$.2f °\r\n垂直视角: %2$.2f °
+</string>
+    <string name="viewshed_tool_fov_horizontal">水平视角</string>
+    <string name="viewshed_tool_fov_vertical">垂直视角</string>
+    <string name="viewshed_tool_viewer_altitude">观察高度</string>
+    <string name="viewshed_tool_shadow_not_supported_title">视域分析</string>
+    <string name="viewshed_tool_shadow_not_supported">视域分析在该设备不支持
+</string>
+    <string name="featurelayer_saved_failed">Failed to save layer</string>
+
+    <!-- los tool -->
+
+    <string name="los_tool_text">目标高度: %s</string>
+    <string name="los_tool_target_height">目标高度</string>
+
+    <!-- shadow tool -->
+
+    <string name="shadow_tool_choose_date">选择日期</string>
+    <string name="shadow_tool_shadow_not_supported_title">阴影分析</string>
+    <string name="shadow_tool_shadow_not_supported">阴影分析在该设备不支持
+</string>
+
+    <!-- SGWorld Message -->
+
+    <string name="title_activity_message">信息</string>
+
+    <!-- layer edit -->
+
+    <string name="featurelayer_tool_edit_layer">编辑图层: %s</string>
+    <string name="featurelayer_tool_no_gps">GPS定位失败</string>
+
+    <!-- feature attributes -->
+
+    <string name="title_activity_attributes">图文信息</string>
+
+    <!-- edit feature -->
+
+    <string name="edit_feature_delete_changes">删除?</string>
+    <string name="edit_feature_save_changes">保存改变?</string>
+
+    <!-- share tool -->
+
+    <string name="share_snapshot_taken">快照保存在Gallery</string>
+    <string name="share_snapshot_share">分享快照</string>
+
+    <!-- whiteboard tool -->
+
+    <string name="whiteboard_tooltext">编辑白板: %s</string>
+    <string name="title_activity_whiteboards">白板</string>
+    <string name="whiteboard_default_name">板子 </string>
+    <string name="Whiteboard_delete">删除白板 %s?</string>
+    <string name="whiteboard_new">白板名称</string>
+    <string name="whiteboard_new_row">点击这里增加一个白板</string>
+    <string name="whiteboard_set_color">选择颜色</string>
+    <string name="whiteboard_set_comment">发表评论</string>
+    <string name="whiteboard_set_text">文本</string>
+    <string name="whiteboard_set_altitude">高度</string>
+    <string name="whiteboardtool_select_board_title">创建一个新的白板?</string>
+    <string name="whiteboardtool_select_board_text">当前是隐藏的。你想创建一个吗新的或使现存的会可见?</string>
+    <string name="whiteboard_create_new_board">新的</string>
+    <string name="whiteboard_show_board">显示</string>
+    <string name="whiteboard_current">[当前]</string>
+    <string name="whiteboard_delete_feature">移除对象在当前中?</string>
+
+    <!-- gps tool -->
+
+    <string name="gpstool_nogps">获取定位失败</string>
+
+    <!-- SmartEarth nav tool -->
+    <!-- SmartEarth loc tool -->
+    <!-- SmartEarth test tool -->
+
+    <!-- Nav -->
+
+    <!-- 用户注册登入 -->
+
+    <!-- 登入 -->
+
+    <!-- 用户POI运维管理 -->
+    <string name="title_activity_ss_edit">SsEditActivity</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="dongtai_home">动态</string>
+    <string name="xcgl_work">管理</string>
+    <string name="skyline_bim">三维</string>
+    <string name="account_setting">我</string>
+    <string name="prompt_project_code">项目编码</string>
+    <string name="prompt_account">账号</string>
+    <string name="prompt_password">密码 (optional)</string>
+    <string name="action_sign_in">登陆</string>
+    <string name="action_sign_in_short">登陆</string>
+    <string name="error_account_required">此处需要输入账号</string>
+    <string name="error_loginuirl_required">此处需要输入登录地址</string>
+    <string name="error_invalid_uri">登录地址错误</string>
+    <string name="error_incorrect_password">密码错误</string>
+    <string name="info_downloading">正在加载 ，请等待...</string>
+    <string name="error_web_connect">连接错误！请稍后再试！</string>
+    <string name="info_need_officesoftware">请下载安装wps Office进行阅读</string>
+    <string name="info_need_sdcard">需要SD卡</string>
+    <string name="info_start_play">启动</string>
+    <string name="info_mileage">里程</string>
+    <string name="menu_item_permission_setting">权限</string>
+    <string name="menu_item_exit">退出登录</string>
+    <string name="menu_item_init_system">初始化</string>
+    <string name="menu_item_clear_cache">清理缓存</string>
+    <string name="menu_item_data_path">三维数据目录</string>
+    <string name="menu_item_open_vpn">打开VPN</string>
+    <string name="info_email">hanzujie@hotmail.com</string>
+
+    <string name="info_permission_internet">允许访问互联网</string>
+    <string name="info_permission_internet_status">允许访问网络连接状态</string>
+    <string name="info_permission_camera">允许访问相机\照片</string>
+    <string name="info_permission_gps">允许访问GPS位置</string>
+    <string name="info_permission_netlocation">允许访问基于网络的位置</string>
+    <string name="info_permission_sd_read">允许读取SD卡文件</string>
+    <string name="info_permission_sd_write">允许写入SD卡文件</string>
+    <string name="info_permission_sd_unmount">允许卸载SD卡</string>
+    <string name="info_permission_sd_format">允许格式化SD卡</string>
+
+    <string name="info_permission_start">启动权限：</string>
+    <string name="info_permissions">权限清单</string>
+    <string name="info_app_check_error">APP验证失败，请确认您已正常连接到服务器，并且登录信息是正确的。</string>
+    <string name="info_app_check_finished">APP重新初始化完成，请重新启动APP。</string>
+    <string name="info_app_init">初始化</string>
+    <string name="info_app_init_ing">正在从服务器获取信息…</string>
+    <string name="info_app_clearcache_ing">正在清理缓存…</string>
+    <string name="info_app_progress_title">形象进度</string>
+    <string name="info_app_progress_ing">正在获取进度信息....</string>
+    <string name="info_app_progress_obj">正在从三维空间场景检索目标信息....</string>
+    <string name="info_app_progress_webapi">正在从服务器查询目标进度信息....</string>
+    <string name="info_app_progress_set_value">正在为目标设置进度信息....</string>
+    <string name="info_app_progress_save_local">正在保存进度信息到本地数据库....</string>
+    <string name="info_app_progress_rending">正在渲染进度信息到空间对象....</string>
+    <string name="setting_data_path_web">缺省路径</string>
+    <string name="setting_data_path_memory">在内存卡的根目录下建立skylinedata目录，并把fly文件存储到这里</string>
+    <string name="setting_data_path_sd">在外sd卡的根目录下建立skylinedata目录，并把fly文件存储到这里</string>
+    <string name="setting_data_path_title">三维数据存储路径</string>
+    <string name="setting_data_path_content">说明：三维数据存储目录一旦设置到本地存储，包含内存存储和SD卡存储，请确保把三维数据拷贝到设置的目录里面，否则无法打开三维场景</string>
+
+
+</resources>

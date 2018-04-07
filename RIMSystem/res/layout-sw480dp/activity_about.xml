@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg2_portrait"
+        android:scaleType="fitXY"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_margin="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/terraexplorer_logo"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:layout_margin="30dp"
+            android:paddingTop="30dp" />
+
+        <TextView
+            android:id="@+id/about_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_version"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_huge"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/about_patents"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_large"
+            android:gravity="left" />
+
+        <TextView
+            android:id="@+id/about_info_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/about_info_email"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_large"
+            android:gravity="left" />
+
+        <TextView
+            android:id="@+id/about_support_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="left"
+            android:text="@string/about_support_email"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/font_size_large" />
+
+        <Button
+            android:id="@+id/about_close"
+            android:layout_marginTop="30dp"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:background="@drawable/control_with_border"
+            android:textColor="@color/text_color"
+            android:text="@string/about_close" />
+
+    </LinearLayout>
+</RelativeLayout>

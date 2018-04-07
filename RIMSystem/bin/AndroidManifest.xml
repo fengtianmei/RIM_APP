@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package=".terraexplorer"
+    android:versionCode="1733"
+    android:versionName="2.0.3.1733" >
+
+    <uses-feature
+        android:glEsVersion="0x00010000"
+        android:required="true" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
+    <application
+        android:name="com.skyline.RIMApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/FloatingActivity" >
+        <provider
+            android:name=".SearchSuggestionProvider"
+            android:authorities=".terraexplorer.SearchSuggestionProvider"
+            android:exported="false" />
+
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".SearchActivity" />
+
+        <activity
+            android:name=".controllers.TEMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controllers.TutorialActivity"
+            android:label="@string/mm_more_tutorial"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.EditFavoriteActivity"
+            android:label="@string/title_activity_favorites"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.EditFavoriteSelectIconActivity"
+            android:label="@string/title_activity_favorites_icons"
+            android:parentActivityName=".controllers.EditFavoriteActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.EditFavoriteActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.SearchActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_search"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controllers.PlacesActivity"
+            android:label="@string/title_activity_places"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.LayersActivity"
+            android:label="@string/title_activity_layers"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.PresentationStepsActivity"
+            android:label="@string/title_activity_layers"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.AboutActivity"
+            android:label="@string/mm_more_about"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.ProjectsActivity"
+            android:label="@string/title_activity_projects"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.FeatureAttributesActivity"
+            android:label="@string/title_activity_attributes"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.WhiteboardListActivity"
+            android:label="@string/title_activity_whiteboards"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.TerrainProfileActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_terrain_profile"
+            android:parentActivityName=".controllers.TEMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controllers.TEMainActivity" />
+        </activity>
+        <activity
+            android:name=".terraexplorer.controllers.SsEditActivity"
+            android:label="@string/title_activity_ss_edit" >
+        </activity>
+    </application>
+
+</manifest>

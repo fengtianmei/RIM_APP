@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/table_header_height"
+    android:enabled="false"
+    android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:textSize="@dimen/font_size_normal"
+    android:textColor="#ffA8A8A8"
+    android:gravity="center_vertical"
+    android:background="#ffffffff"
+    android:text="Header" />

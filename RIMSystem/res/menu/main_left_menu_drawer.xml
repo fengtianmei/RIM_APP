@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!-- activity_main的左侧滑动菜单栏-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_init_system"
+            android:icon="@drawable/init"
+            android:title="@string/menu_item_init_system" />
+        <item
+            android:id="@+id/nav_permission"
+            android:icon="@drawable/setting"
+            android:title="@string/menu_item_permission_setting" />
+        <item
+            android:id="@+id/nav_clearhache"
+            android:icon="@drawable/hache"
+            android:title="@string/menu_item_clear_cache" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_open_vpn"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/menu_item_open_vpn" />
+        <item
+            android:id="@+id/nav_data_path"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/menu_item_data_path" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/offline_function"
+            android:icon="@drawable/offline_fun"
+            android:title="@string/mm_offline_function" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="@string/mm_more_about" />
+    </group>
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/exit"
+        android:title="@string/menu_item_exit" />
+
+</menu>

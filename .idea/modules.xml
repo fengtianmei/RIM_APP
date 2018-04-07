@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RIMSystem/RIMSystem.iml" filepath="$PROJECT_DIR$/RIMSystem/RIMSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RIM_APP.iml" filepath="$PROJECT_DIR$/RIM_APP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YZxing-lib/YZxing-lib.iml" filepath="$PROJECT_DIR$/YZxing-lib/YZxing-lib.iml" />
+    </modules>
+  </component>
+</project>

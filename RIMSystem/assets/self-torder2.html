@@ -1,0 +1,892 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" manifest="index.manifest">
+<head>
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>首页</title>
+    <link href="css/m_style.css" rel="stylesheet"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        var qiaoObject = new qiaosum();
+        var lujiObject = new ljsum();
+        var suidaoObject = new sdsum();
+        var qiaolist = new Array();
+        var lujilist = new Array();
+        var shuidaolist = new Array();
+        $(document).ready(function () {
+            init_BaseDataBase();
+            init();
+            var getLocalTotalData = localStorage.getItem('LocalTotalData');
+            var getLocalYearData = localStorage.getItem('LocalYearData');
+            var getLocalMonthData = localStorage.getItem('LocalMonthData');
+            var getLocalWeekData = localStorage.getItem('LocalWeekData');
+            $("#totaltext").html(getLocalTotalData);
+            $("#yeartext").html(getLocalYearData);
+            $("#monthtext").html(getLocalMonthData);
+            if ("桥梁0.00%路基0.00%隧道0.00%" != getLocalWeekData)
+                $("#weektext").css("color", "red");
+            $("#weektext").html(getLocalWeekData);
+        });
+        timer(true);
+        function timer(a) {
+            if (a) {
+                setTimeout('myrefresh()', 500);
+            } else {
+                return;
+            }
+        }
+        function init_BaseDataBase() {
+            if (window.AndroidObject.isInitDB(1, 18, 10) == false) {
+                window.AndroidObject.openDB();
+                window.AndroidObject.execSQL1("delete from bridgeList where projectid=1");
+                window.AndroidObject.execSQL1("delete from tunnelList where projectid=1");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'石店河大桥','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'疏解线特大桥','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'阳泉北站大桥','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'北环线特大桥','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'牛村特大桥','第二标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'西洼沟大桥','第二标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'跨314省道中桥','第二标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'北沟大桥','第三标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'温河特大桥','第三标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'狼窝沟中桥','第四标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'苇泊河特大桥','第四标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'后洼大桥','第四标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'三郊特大桥','第四标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'北环线特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'荫营互通中桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'荫营河特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'跨314省道中桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'阳泉北站大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'牛村特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'温河特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'苇泊河特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'三郊特大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'桃河大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'石店河大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'西洼沟大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'北沟大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'河坡电厂大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'义井河大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'后洼大桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'狼窝沟中桥','第五标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'桃河大桥','第七标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'河坡电厂大桥','第七标','',1)");
+                window.AndroidObject.execSQL1("insert into bridgeList values(null,1,'义井河大桥','第七标','',1)");
+
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'东寨隧道','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'东寨隧道-变更','第一标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'杏村隧道','第二标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'南岭隧道','第三标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'北沟隧道','第三标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'武家庄隧道','第三标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'南沟隧道','第三标','',1)");
+
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'北梁隧道','第四标','',1)");
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'杨树沟隧道','第四标','',1)");
+
+                window.AndroidObject.execSQL1("insert into tunnelList values(null,1,'李家庄隧道','第五标','',1)");
+                window.AndroidObject.closeDB();
+            }
+        }
+        function tongji_function(type) {
+            window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/tongji.html?type=' + type, 2, '');
+        }
+        function loadtongji() {
+            if ((qiaolist.length == 7 && lujilist.length == 7 & shuidaolist.length == 7))
+            {
+                window.AndroidObject.openDB();
+                //全线
+               window.AndroidObject.execSQL1("delete from statistics where projectid=1 ");
+
+                var ct, zj, wj, dt, jz, l, kw, zh, cq, yg, wf, tf;
+                ct = qiaoObject.startsum_ct + "/" + qiaoObject.totalsum_ct;
+                zj = qiaoObject.startsum_zj + "/" + qiaoObject.totalsum_zj;
+                wj = qiaoObject.startsum_wj + "/" + qiaoObject.totalsum_wj;
+                dt = qiaoObject.startsum_dt + "/" + qiaoObject.totalsum_dt;
+                jz = qiaoObject.startsum_jz + "/" + qiaoObject.totalsum_jz;
+                l = qiaoObject.startsum_l + "/" + qiaoObject.totalsum_l;
+
+
+                kw = suidaoObject.startsum_kw + "/" + suidaoObject.totalsum_kw;
+                zh = suidaoObject.startsum_zh + "/" + suidaoObject.totalsum_zh;
+                cq = suidaoObject.startsum_cq + "/" + suidaoObject.totalsum_cq;
+                yg = suidaoObject.startsum_yg + "/" + suidaoObject.totalsum_yg;
+
+                wf = lujiObject.startsum_wf + "/" + lujiObject.totalsum_wf;
+                tf = lujiObject.startsum_tf + "/" + lujiObject.totalsum_tf;
+
+                window.AndroidObject.execSQL1("insert into statistics values(null,1,1,'" + ct + "','" + zj + "','" + wj + "','" + dt + "','" + jz + "','" + l + "','" + kw + "','" + zh + "','" + cq + "','" + yg + "','" + wf + "','" + tf + "')");
+
+            //年
+
+                var ct, zj, wj, dt, jz, l, kw, zh, cq, yg, wf, tf;
+                ct = qiaoObject.yearsum_ct + "/" + qiaoObject.totalsum_ct;
+                zj = qiaoObject.yearsum_zj + "/" + qiaoObject.totalsum_zj;
+                wj = qiaoObject.yearsum_wj + "/" + qiaoObject.totalsum_wj;
+                dt = qiaoObject.yearsum_dt + "/" + qiaoObject.totalsum_dt;
+                jz = qiaoObject.yearsum_jz + "/" + qiaoObject.totalsum_jz;
+                l = qiaoObject.yearsum_l + "/" + qiaoObject.totalsum_l;
+
+
+                kw = suidaoObject.yearsum_kw + "/" + suidaoObject.totalsum_kw;
+                zh = suidaoObject.yearsum_zh + "/" + suidaoObject.totalsum_zh;
+                cq = suidaoObject.yearsum_cq + "/" + suidaoObject.totalsum_cq;
+                yg = suidaoObject.yearsum_yg + "/" + suidaoObject.totalsum_yg;
+
+                wf = lujiObject.yearsum_wf + "/" + lujiObject.totalsum_wf;
+                tf = lujiObject.yearsum_tf + "/" + lujiObject.totalsum_tf;
+                window.AndroidObject.execSQL1("insert into statistics values(null,1,2,'" + ct + "','" + zj + "','" + wj + "','" + dt + "','" + jz + "','" + l + "','" + kw + "','" + zh + "','" + cq + "','" + yg + "','" + wf + "','" + tf + "')");
+            //月
+
+                var ct, zj, wj, dt, jz, l, kw, zh, cq, yg, wf, tf;
+                ct = qiaoObject.monthsum_ct + "/" + qiaoObject.totalsum_ct;
+                zj = qiaoObject.monthsum_zj + "/" + qiaoObject.totalsum_zj;
+                wj = qiaoObject.monthsum_wj + "/" + qiaoObject.totalsum_wj;
+                dt = qiaoObject.monthsum_dt + "/" + qiaoObject.totalsum_dt;
+                jz = qiaoObject.monthsum_jz + "/" + qiaoObject.totalsum_jz;
+                l = qiaoObject.monthsum_l + "/" + qiaoObject.totalsum_l;
+
+
+                kw = suidaoObject.monthsum_kw + "/" + suidaoObject.totalsum_kw;
+                zh = suidaoObject.monthsum_zh + "/" + suidaoObject.totalsum_zh;
+                cq = suidaoObject.monthsum_cq + "/" + suidaoObject.totalsum_cq;
+                yg = suidaoObject.monthsum_yg + "/" + suidaoObject.totalsum_yg;
+
+                wf = lujiObject.monthsum_wf + "/" + lujiObject.totalsum_wf;
+                tf = lujiObject.monthsum_tf + "/" + lujiObject.totalsum_tf;
+                window.AndroidObject.execSQL1("insert into statistics values(null,1,3,'" + ct + "','" + zj + "','" + wj + "','" + dt + "','" + jz + "','" + l + "','" + kw + "','" + zh + "','" + cq + "','" + yg + "','" + wf + "','" + tf + "')");
+            //周
+
+                var ct, zj, wj, dt, jz, l, kw, zh, cq, yg, wf, tf;
+                ct = qiaoObject.weeksum_ct + "/" + qiaoObject.totalsum_ct;
+                zj = qiaoObject.weeksum_zj + "/" + qiaoObject.totalsum_zj;
+                wj = qiaoObject.weeksum_wj + "/" + qiaoObject.totalsum_wj;
+                dt = qiaoObject.weeksum_dt + "/" + qiaoObject.totalsum_dt;
+                jz = qiaoObject.weeksum_jz + "/" + qiaoObject.totalsum_jz;
+                l = qiaoObject.weeksum_l + "/" + qiaoObject.totalsum_l;
+
+
+                kw = suidaoObject.weeksum_kw + "/" + suidaoObject.totalsum_kw;
+                zh = suidaoObject.weeksum_zh + "/" + suidaoObject.totalsum_zh;
+                cq = suidaoObject.weeksum_cq + "/" + suidaoObject.totalsum_cq;
+                yg = suidaoObject.weeksum_yg + "/" + suidaoObject.totalsum_yg;
+
+                wf = lujiObject.weeksum_wf + "/" + lujiObject.totalsum_wf;
+                tf = lujiObject.weeksum_tf + "/" + lujiObject.totalsum_tf;
+                window.AndroidObject.execSQL1("insert into statistics values(null,1,4,'" + ct + "','" + zj + "','" + wj + "','" + dt + "','" + jz + "','" + l + "','" + kw + "','" + zh + "','" + cq + "','" + yg + "','" + wf + "','" + tf + "')");
+                window.AndroidObject.closeDB();
+            }
+        }
+        //function convertNum(str) {
+        //    return parseInt((str != "" && str != ".00") ? str : 0);
+        //}
+        function convertNum(str) {
+            return parseInt((str != "" && str != ".00" && str != '' && str != "undefined") ? str : 0);
+        }
+        function myrefresh() {
+            if (qiaolist.length == 7 && lujilist.length == 7 & shuidaolist.length == 7) {
+
+                loadhtml();
+                loadtongji()
+                timer(false);
+            } else {
+                timer(true);
+            }
+        }
+        function loadhtml() {
+            window.AndroidObject.openDB();
+            window.AndroidObject.execSQL1("delete from bridge where projectid=1 ");
+            window.AndroidObject.execSQL1("delete from tunnel where projectid=1 ");
+            ///////////////////////////////////////////////////////////////////////////////
+
+            for (var i = 0; i < qiaolist.length; i++) {
+                if (qiaolist[i].length > 0) {
+                    for (var j = 0; j < qiaolist[i].length; j++) {
+
+                        window.AndroidObject.execSQL1("insert into bridge values(null,1," + convertNum(qiaolist[i][j].剩余数量) + ",'" + qiaolist[i][j].剩余详情 + "','" + qiaolist[i][j].单位 + "'," + convertNum(qiaolist[i][j].周累数量) + ",'" + qiaolist[i][j].周累详情 + "'," + convertNum(qiaolist[i][j].月累数量) + ",'" + qiaolist[i][j].月累详情 + "'," + convertNum(qiaolist[i][j].季累数量) + ",'" + qiaolist[i][j].季累详情 + "'," + convertNum(qiaolist[i][j].年累数量) + ",'" + qiaolist[i][j].年累详情 + "'," + convertNum(qiaolist[i][j].开累数量) + ",'" + qiaolist[i][j].开累详情 + "'," + convertNum(qiaolist[i][j].总量) + ",'" + qiaolist[i][j].工点名称.replace(/^\s+|\s+$/g, "") + "','" + qiaolist[i][j].工程项目名称一级.replace(/^\s+|\s+$/g, "") + "','" + qiaolist[i][j].工程项目名称二级.replace(/^\s+|\s+$/g, "") + "','" + qiaolist[i][j].标段.replace(/^\s+|\s+$/g, "") + "','" + qiaolist[i][j].标段ID.replace(/^\s+|\s+$/g, "") + "')");
+                        //window.AndroidObject.saveBridge(qiaolist[i][j].剩余数量, qiaolist[i][j].剩余详情.toString(), qiaolist[i][j].单位.toString(), qiaolist[i][j].周累数量.toString(), qiaolist[i][j].周累详情.toString(), qiaolist[i][j].月累数量.toString(), qiaolist[i][j].月累详情.toString(), qiaolist[i][j].季累数量.toString(), qiaolist[i][j].季累详情.toString(), qiaolist[i][j].年累数量.toString(), qiaolist[i][j].年累详情.toString(), qiaolist[i][j].开累数量.toString(), qiaolist[i][j].开累详情.toString(), qiaolist[i][j].总量.toString(), qiaolist[i][j].工点名称.toString(), qiaolist[i][j].工程项目名称一级.toString(), qiaolist[i][j].工程项目名称二级.toString());
+                        if (qiaolist[i][j].工程项目名称一级 == "基础") {
+                            if (qiaolist[i][j].工程项目名称二级 == "承台") {
+                                qiaoObject.weeksum_ct += convertNum(qiaolist[i][j].周累数量); //周累数量
+                                qiaoObject.monthsum_ct += convertNum(qiaolist[i][j].月累数量); //月累数量
+                                qiaoObject.seasonsum_ct += convertNum(qiaolist[i][j].季累数量); //季累数量
+                                qiaoObject.yearsum_ct += convertNum(qiaolist[i][j].年累数量); //年累数量
+                                qiaoObject.startsum_ct += convertNum(qiaolist[i][j].开累数量); //开累数量
+                                qiaoObject.totalsum_ct += convertNum(qiaolist[i][j].总量); //总量
+                                qiaoObject.surplussum_ct += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                            } else if (qiaolist[i][j].工程项目名称二级 == "桩基") {
+                                qiaoObject.weeksum_zj += convertNum(qiaolist[i][j].周累数量); //周累数量
+                                qiaoObject.monthsum_zj += convertNum(qiaolist[i][j].月累数量); //月累数量
+                                qiaoObject.seasonsum_zj += convertNum(qiaolist[i][j].季累数量); //季累数量
+                                qiaoObject.yearsum_zj += convertNum(qiaolist[i][j].年累数量); //年累数量
+                                qiaoObject.startsum_zj += convertNum(qiaolist[i][j].开累数量); //开累数量
+                                qiaoObject.totalsum_zj += convertNum(qiaolist[i][j].总量); //总量
+                                qiaoObject.surplussum_zj += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                            }
+                            else if (qiaolist[i][j].工程项目名称二级 == "挖井基础") {
+                                qiaoObject.weeksum_wj += convertNum(qiaolist[i][j].周累数量); //周累数量
+                                qiaoObject.monthsum_wj += convertNum(qiaolist[i][j].月累数量); //月累数量
+                                qiaoObject.seasonsum_wj += convertNum(qiaolist[i][j].季累数量); //季累数量
+                                qiaoObject.yearsum_wj += convertNum(qiaolist[i][j].年累数量); //年累数量
+                                qiaoObject.startsum_wj += convertNum(qiaolist[i][j].开累数量); //开累数量
+                                qiaoObject.totalsum_wj += convertNum(qiaolist[i][j].总量); //总量
+                                qiaoObject.surplussum_wj += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                            }
+                        } else if (qiaolist[i][j].工程项目名称一级 == "墩台") {
+                            qiaoObject.weeksum_dt += convertNum(qiaolist[i][j].周累数量); //周累数量
+                            qiaoObject.monthsum_dt += convertNum(qiaolist[i][j].月累数量); //月累数量
+                            qiaoObject.seasonsum_dt += convertNum(qiaolist[i][j].季累数量); //季累数量
+                            qiaoObject.yearsum_dt += convertNum(qiaolist[i][j].年累数量); //年累数量
+                            qiaoObject.startsum_dt += convertNum(qiaolist[i][j].开累数量); //开累数量
+                            qiaoObject.totalsum_dt += convertNum(qiaolist[i][j].总量); //总量
+                            qiaoObject.surplussum_dt += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                        }
+                        else if (qiaolist[i][j].工程项目名称一级 == "梁") {
+                            if (qiaolist[i][j].工程项目名称二级.indexOf('简支') >= 0) {
+                                qiaoObject.weeksum_jz += convertNum(qiaolist[i][j].周累数量); //周累数量
+                                qiaoObject.monthsum_jz += convertNum(qiaolist[i][j].月累数量); //月累数量
+                                qiaoObject.seasonsum_jz += convertNum(qiaolist[i][j].季累数量); //季累数量
+                                qiaoObject.yearsum_jz += convertNum(qiaolist[i][j].年累数量); //年累数量
+                                qiaoObject.startsum_jz += convertNum(qiaolist[i][j].开累数量); //开累数量
+                                qiaoObject.totalsum_jz += convertNum(qiaolist[i][j].总量); //总量
+                                qiaoObject.surplussum_jz += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                            } else {
+                                qiaoObject.weeksum_l += convertNum(qiaolist[i][j].周累数量); //周累数量
+                                qiaoObject.monthsum_l += convertNum(qiaolist[i][j].月累数量); //月累数量
+                                qiaoObject.seasonsum_l += convertNum(qiaolist[i][j].季累数量); //季累数量
+                                qiaoObject.yearsum_l += convertNum(qiaolist[i][j].年累数量); //年累数量
+                                qiaoObject.startsum_l += convertNum(qiaolist[i][j].开累数量); //开累数量
+                                qiaoObject.totalsum_l += convertNum(qiaolist[i][j].总量); //总量
+                                qiaoObject.surplussum_l += convertNum(qiaolist[i][j].剩余数量); //剩余数量
+                            }
+                        }
+                    }
+                }
+            }
+            var ct_rate = 0.1;
+            var zj_rate = 0.1;
+            var wj_rate = 0.1;
+            var dt_rate = 0.2;
+            var l_rate = 0.45;
+            var jz_rate = 0.05;
+            var qiao_rate = qiaoObject.startsum_ct / qiaoObject.totalsum_ct * ct_rate +
+            qiaoObject.startsum_zj / qiaoObject.totalsum_zj * zj_rate +
+            qiaoObject.startsum_wj / qiaoObject.totalsum_wj * wj_rate +
+            qiaoObject.startsum_dt / qiaoObject.totalsum_dt * dt_rate +
+            qiaoObject.startsum_l / qiaoObject.totalsum_l * l_rate +
+            qiaoObject.startsum_jz / qiaoObject.totalsum_jz * jz_rate;
+            ////////////////////////////////////////////////////////////////////////////
+
+            for (var i = 0; i < shuidaolist.length; i++) {
+                if (shuidaolist[i].length > 0) {
+                    for (var j = 0; j < shuidaolist[i].length; j++) {
+                        window.AndroidObject.execSQL1("insert into tunnel values(null,1," + convertNum(shuidaolist[i][j].剩余) + "," + convertNum(shuidaolist[i][j].周累完成) + "," + convertNum(shuidaolist[i][j].月累完成) + "," + convertNum(shuidaolist[i][j].季累完成) + "," + convertNum(shuidaolist[i][j].年累完成) + "," + convertNum(shuidaolist[i][j].开累完成) + "," + convertNum(shuidaolist[i][j].洞口里程) + "," + convertNum(shuidaolist[i][j].终止里程) + "," + convertNum(shuidaolist[i][j].设计长度) + "," + convertNum(shuidaolist[i][j].起始里程) + ",'" + shuidaolist[i][j].工点名称.replace(/^\s+|\s+$/g, "") + "','" + shuidaolist[i][j].工程项目名称.replace(/^\s+|\s+$/g, "") + "','" + shuidaolist[i][j].工作面.replace(/^\s+|\s+$/g, "") + "','" + shuidaolist[i][j].标段.replace(/^\s+|\s+$/g, "") + "','" + shuidaolist[i][j].标段ID.replace(/^\s+|\s+$/g, "") + "')");
+                        //window.AndroidObject.saveTunnel(shuidaolist[i][j].剩余.toString()+ "','" + shuidaolist[i][j].周累完成.toString(), shuidaolist[i][j].月累完成.toString(), shuidaolist[i][j].季累完成.toString(), shuidaolist[i][j].年累完成.toString(), shuidaolist[i][j].开累完成.toString(), shuidaolist[i][j].洞口里程.toString(),shuidaolist[i][j].终止里程, shuidaolist[i][j].设计长度.toString(), shuidaolist[i][j].起始里程.toString(), shuidaolist[i][j].工点名称.toString(), shuidaolist[i][j].工程项目名称.toString(), shuidaolist[i][j].工作面.toString());
+                        if (shuidaolist[i][j].工程项目名称 == "开挖") {
+                            suidaoObject.weeksum_kw += convertNum(shuidaolist[i][j].周累完成); //周累数量
+                            suidaoObject.monthsum_kw += convertNum(shuidaolist[i][j].月累完成); //月累数量
+                            suidaoObject.seasonsum_kw += convertNum(shuidaolist[i][j].季累完成); //季累数量
+                            suidaoObject.yearsum_kw += convertNum(shuidaolist[i][j].年累完成); //年累数量
+                            suidaoObject.startsum_kw += convertNum(shuidaolist[i][j].开累完成); //开累数量
+                            suidaoObject.totalsum_kw += convertNum(shuidaolist[i][j].设计长度); //总量
+                            suidaoObject.surplussum_kw += convertNum(shuidaolist[i][j].剩余); //剩余数量
+                        }
+                        else if (shuidaolist[i][j].工程项目名称 == "支护") {
+                            suidaoObject.weeksum_zh += convertNum(shuidaolist[i][j].周累完成); //周累数量
+                            suidaoObject.monthsum_zh += convertNum(shuidaolist[i][j].月累完成); //月累数量
+                            suidaoObject.seasonsum_zh += convertNum(shuidaolist[i][j].季累完成); //季累数量
+                            suidaoObject.yearsum_zh += convertNum(shuidaolist[i][j].年累完成); //年累数量
+                            suidaoObject.startsum_zh += convertNum(shuidaolist[i][j].开累完成); //开累数量
+                            suidaoObject.totalsum_zh += convertNum(shuidaolist[i][j].设计长度); //总量
+                            suidaoObject.surplussum_zh += convertNum(shuidaolist[i][j].剩余); //剩余数量
+                        } else if (shuidaolist[i][j].工程项目名称 == "衬砌") {
+                            suidaoObject.weeksum_cq += convertNum(shuidaolist[i][j].周累完成); //周累数量
+                            suidaoObject.monthsum_cq += convertNum(shuidaolist[i][j].月累完成); //月累数量
+                            suidaoObject.seasonsum_cq += convertNum(shuidaolist[i][j].季累完成); //季累数量
+                            suidaoObject.yearsum_cq += convertNum(shuidaolist[i][j].年累完成); //年累数量
+                            suidaoObject.startsum_cq += convertNum(shuidaolist[i][j].开累完成); //开累数量
+                            suidaoObject.totalsum_cq += convertNum(shuidaolist[i][j].设计长度); //总量
+                            suidaoObject.surplussum_cq += convertNum(shuidaolist[i][j].剩余); //剩余数量
+                        } else if (shuidaolist[i][j].工程项目名称 == "仰拱") {
+                            suidaoObject.weeksum_yg += convertNum(shuidaolist[i][j].周累完成); //周累数量
+                            suidaoObject.monthsum_yg += convertNum(shuidaolist[i][j].月累完成); //月累数量
+                            suidaoObject.seasonsum_yg += convertNum(shuidaolist[i][j].季累完成); //季累数量
+                            suidaoObject.yearsum_yg += convertNum(shuidaolist[i][j].年累完成); //年累数量
+                            suidaoObject.startsum_yg += convertNum(shuidaolist[i][j].开累完成); //开累数量
+                            suidaoObject.totalsum_yg += convertNum(shuidaolist[i][j].设计长度); //总量
+                            suidaoObject.surplussum_yg += convertNum(shuidaolist[i][j].剩余); //剩余数量
+                        }
+                    }
+                }
+            }
+            var kw_rate = 0.3;
+            var zh_rate = 0.2;
+            var cq_rate = 0.2;
+            var yg_rate = 0.3;
+            var suidao_rate = suidaoObject.startsum_kw / suidaoObject.totalsum_kw * kw_rate +
+            suidaoObject.startsum_zh / suidaoObject.totalsum_zh * zh_rate +
+            suidaoObject.startsum_cq / suidaoObject.totalsum_cq * cq_rate +
+            suidaoObject.startsum_yg / suidaoObject.totalsum_yg * yg_rate;
+            //////////////////////////////////////////////////////////////////////////////
+
+            for (var i = 0; i < lujilist.length; i++) {
+                if (lujilist[i].length > 0) {
+                    for (var j = 0; j < lujilist[i].length; j++) {
+                        if (lujilist[i][j].工程项目名称 == "挖方") {
+                            lujiObject.weeksum_wf += convertNum(lujilist[i][j].周累量); //周累数量
+                            lujiObject.monthsum_wf += convertNum(lujilist[i][j].月累量); //月累数量
+                            lujiObject.seasonsum_wf += convertNum(lujilist[i][j].季累量); //季累数量
+                            lujiObject.yearsum_wf += convertNum(lujilist[i][j].年累量); //年累数量
+                            lujiObject.startsum_wf += convertNum(lujilist[i][j].开累量); //开累数量
+                            lujiObject.totalsum_wf += convertNum(lujilist[i][j].总量); //总量
+                            lujiObject.surplussum_wf += convertNum(lujilist[i][j].剩余量); //剩余数量
+                            lujiObject.len_wf += convertNum(lujilist[i][j].长度); //剩余数量
+                        }
+                        else if (lujilist[i][j].工程项目名称 == "填方") {
+                            lujiObject.weeksum_tf += convertNum(lujilist[i][j].周累量); //周累数量
+                            lujiObject.monthsum_tf += convertNum(lujilist[i][j].月累量); //月累数量
+                            lujiObject.seasonsum_tf += convertNum(lujilist[i][j].季累量); //季累数量
+                            lujiObject.yearsum_tf += convertNum(lujilist[i][j].年累量); //年累数量
+                            lujiObject.startsum_tf += convertNum(lujilist[i][j].开累量); //开累数量
+                            lujiObject.totalsum_tf += convertNum(lujilist[i][j].总量); //总量
+                            lujiObject.surplussum_tf += convertNum(lujilist[i][j].剩余量); //剩余数量
+                            lujiObject.len_tf += convertNum(lujilist[i][j].长度); //剩余数量
+                        }
+                    }
+                }
+            }
+            var wf_rate = 0.5;
+            var tf_rate = 0.5;
+            var luji_rate = lujiObject.startsum_wf / lujiObject.totalsum_wf * wf_rate +
+            lujiObject.startsum_tf / lujiObject.totalsum_tf * tf_rate;
+
+            $("#totaltext").html("桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+            localStorage.setItem('LocalTotalData', "桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+
+            qiao_rate = qiaoObject.yearsum_ct / qiaoObject.totalsum_ct * ct_rate +
+                    qiaoObject.yearsum_zj / qiaoObject.totalsum_zj * zj_rate +
+                    qiaoObject.yearsum_wj / qiaoObject.totalsum_wj * wj_rate +
+                    qiaoObject.yearsum_dt / qiaoObject.totalsum_dt * dt_rate +
+                    qiaoObject.yearsum_l / qiaoObject.totalsum_l * l_rate +
+                    qiaoObject.yearsum_jz / qiaoObject.totalsum_jz * jz_rate;
+
+            suidao_rate = suidaoObject.yearsum_kw / suidaoObject.totalsum_kw * kw_rate +
+                    suidaoObject.yearsum_zh / suidaoObject.totalsum_zh * zh_rate +
+                    suidaoObject.yearsum_cq / suidaoObject.totalsum_cq * cq_rate +
+                    suidaoObject.yearsum_yg / suidaoObject.totalsum_yg * yg_rate;
+
+            luji_rate = lujiObject.yearsum_wf / lujiObject.totalsum_wf * wf_rate +
+                    lujiObject.yearsum_tf / lujiObject.totalsum_tf * tf_rate;
+            $("#yeartext").html("桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+            localStorage.setItem('LocalYearData', "桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+
+
+            qiao_rate = qiaoObject.monthsum_ct / qiaoObject.totalsum_ct * ct_rate +
+                    qiaoObject.monthsum_zj / qiaoObject.totalsum_zj * zj_rate +
+                    qiaoObject.monthsum_wj / qiaoObject.totalsum_wj * wj_rate +
+                    qiaoObject.monthsum_dt / qiaoObject.totalsum_dt * dt_rate +
+                    qiaoObject.monthsum_l / qiaoObject.totalsum_l * l_rate +
+                    qiaoObject.monthsum_jz / qiaoObject.totalsum_jz * jz_rate;
+
+            suidao_rate = suidaoObject.monthsum_kw / suidaoObject.totalsum_kw * kw_rate +
+                    suidaoObject.monthsum_zh / suidaoObject.totalsum_zh * zh_rate +
+                    suidaoObject.monthsum_cq / suidaoObject.totalsum_cq * cq_rate +
+                    suidaoObject.monthsum_yg / suidaoObject.totalsum_yg * yg_rate;
+
+            luji_rate = lujiObject.monthsum_wf / lujiObject.totalsum_wf * wf_rate +
+                    lujiObject.monthsum_tf / lujiObject.totalsum_tf * tf_rate;
+            $("#monthtext").html("桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+            localStorage.setItem('LocalMonthData', "桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+
+            qiao_rate = qiaoObject.weeksum_ct / qiaoObject.totalsum_ct * ct_rate +
+                    qiaoObject.weeksum_zj / qiaoObject.totalsum_zj * zj_rate +
+                    qiaoObject.weeksum_wj / qiaoObject.totalsum_wj * wj_rate +
+                    qiaoObject.weeksum_dt / qiaoObject.totalsum_dt * dt_rate +
+                    qiaoObject.weeksum_l / qiaoObject.totalsum_l * l_rate +
+                    qiaoObject.weeksum_jz / qiaoObject.totalsum_jz * jz_rate;
+
+            suidao_rate = suidaoObject.weeksum_kw / suidaoObject.totalsum_kw * kw_rate +
+                    suidaoObject.weeksum_zh / suidaoObject.totalsum_zh * zh_rate +
+                    suidaoObject.weeksum_cq / suidaoObject.totalsum_cq * cq_rate +
+                    suidaoObject.weeksum_yg / suidaoObject.totalsum_yg * yg_rate;
+
+            luji_rate = lujiObject.weeksum_wf / lujiObject.totalsum_wf * wf_rate +
+                    lujiObject.weeksum_tf / lujiObject.totalsum_tf * tf_rate;
+            $("#weektext").html("桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+            if ("桥梁0.00%路基0.00%隧道0.00%" != "桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%")
+                $("#weektext").css("color", "red");
+            localStorage.setItem('LocalWeekData', "桥梁" + (qiao_rate * 100).toFixed(2) + "%路基" + (luji_rate * 100).toFixed(2) + "%隧道" + (suidao_rate * 100).toFixed(2) + "%");
+            window.AndroidObject.closeDB();
+        }
+        function init() {
+            $.getJSON("../handler/Ygjj/ygjjHandler.ashx", { type: 1 }, function (data) {
+                var time = new Date();
+                for (var i = 0; i < data.length; i++) {
+                    qiaoBd(data[i].ID.toString(), time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                    lujiBd(data[i].ID.toString(), time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                    suidaoBd(data[i].ID.toString(), time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                }
+            });
+        }
+        function qiaosum() {
+            this.weeksum_ct = 0; //周累数量
+            this.monthsum_ct = 0; //月累数量
+            this.seasonsum_ct = 0; //季累数量
+            this.yearsum_ct = 0; //年累数量
+            this.startsum_ct = 0; //开累数量
+            this.totalsum_ct = 0; //总量
+            this.surplussum_ct = 0; //剩余数量
+            this.len_ct = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_zj = 0; //周累数量
+            this.monthsum_zj = 0; //月累数量
+            this.seasonsum_zj = 0; //季累数量
+            this.yearsum_zj = 0; //年累数量
+            this.startsum_zj = 0; //开累数量
+            this.totalsum_zj = 0; //总量
+            this.surplussum_zj = 0; //剩余数量
+            this.len_zj = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_wj = 0; //周累数量
+            this.monthsum_wj = 0; //月累数量
+            this.seasonsum_wj = 0; //季累数量
+            this.yearsum_wj = 0; //年累数量
+            this.startsum_wj = 0; //开累数量
+            this.totalsum_wj = 0; //总量
+            this.surplussum_wj = 0; //剩余数量
+            this.len_wj = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_dt = 0; //周累数量
+            this.monthsum_dt = 0; //月累数量
+            this.seasonsum_dt = 0; //季累数量
+            this.yearsum_dt = 0; //年累数量
+            this.startsum_dt = 0; //开累数量
+            this.totalsum_dt = 0; //总量
+            this.surplussum_dt = 0; //剩余数量
+            this.len_dt = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_l = 0; //周累数量
+            this.monthsum_l = 0; //月累数量
+            this.seasonsum_l = 0; //季累数量
+            this.yearsum_l = 0; //年累数量
+            this.startsum_l = 0; //开累数量
+            this.totalsum_l = 0; //总量
+            this.surplussum_l = 0; //剩余数量
+            this.len_l = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_jz = 0; //周累数量
+            this.monthsum_jz = 0; //月累数量
+            this.seasonsum_jz = 0; //季累数量
+            this.yearsum_jz = 0; //年累数量
+            this.startsum_jz = 0; //开累数量
+            this.totalsum_jz = 0; //总量
+            this.surplussum_jz = 0; //剩余数量
+            this.len_jz = 0.0; //长度或平方米
+        }
+        function sdsum() {
+            this.weeksum_kw = 0; //周累数量
+            this.monthsum_kw = 0; //月累数量
+            this.seasonsum_kw = 0; //季累数量
+            this.yearsum_kw = 0; //年累数量
+            this.startsum_kw = 0; //开累数量
+            this.totalsum_kw = 0; //总量
+            this.surplussum_kw = 0; //剩余数量
+            this.len_kw = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_zh = 0; //周累数量
+            this.monthsum_zh = 0; //月累数量
+            this.seasonsum_zh = 0; //季累数量
+            this.yearsum_zh = 0; //年累数量
+            this.startsum_zh = 0; //开累数量
+            this.totalsum_zh = 0; //总量
+            this.surplussum_zj = 0; //剩余数量
+            this.len_zh = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_cq = 0; //周累数量
+            this.monthsum_cq = 0; //月累数量
+            this.seasonsum_cq = 0; //季累数量
+            this.yearsum_cq = 0; //年累数量
+            this.startsum_cq = 0; //开累数量
+            this.totalsum_cq = 0; //总量
+            this.surplussum_cq = 0; //剩余数量
+            this.len_cq = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_yg = 0; //周累数量
+            this.monthsum_yg = 0; //月累数量
+            this.seasonsum_yg = 0; //季累数量
+            this.yearsum_yg = 0; //年累数量
+            this.startsum_yg = 0; //开累数量
+            this.totalsum_yg = 0; //总量
+            this.surplussum_yg = 0; //剩余数量
+            this.len_yg = 0.0; //长度或平方米
+        }
+        function ljsum() {
+            this.weeksum_wf = 0; //周累数量
+            this.monthsum_wf = 0; //月累数量
+            this.seasonsum_wf = 0; //季累数量
+            this.yearsum_wf = 0; //年累数量
+            this.startsum_wf = 0; //开累数量
+            this.totalsum_wf = 0; //总量
+            this.surplussum_wf = 0; //剩余数量
+            this.len_wf = 0.0; //长度或平方米
+            /////////////
+            this.weeksum_tf = 0; //周累数量
+            this.monthsum_tf = 0; //月累数量
+            this.seasonsum_tf = 0; //季累数量
+            this.yearsum_tf = 0; //年累数量
+            this.startsum_tf = 0; //开累数量
+            this.totalsum_tf = 0; //总量
+            this.surplussum_tf = 0; //剩余数量
+            this.len_tf = 0.0; //长度或平方米
+
+        }
+
+        function init() {
+            $.getJSON("../handler/Ygjj/ygjjHandler.ashx", { type: 1 }, function (data) {
+                var time = new Date();
+                for (var i = 0; i < data.length; i++) {
+                    qiaoBd(data[i].ID.toString(),data[i].NAME, time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                    lujiBd(data[i].ID.toString(), data[i].NAME, time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                    suidaoBd(data[i].ID.toString(), data[i].NAME, time.toLocaleDateString().replace('/', '-').replace('/', '-'));
+                }
+            });
+        }
+        //---------------------------------------------------------------------------------------------------------------------
+        //获取所有标段的桥数据
+        //---------------------------------------------------------------------------------------------------------------------
+        function qiaoBd(bdid, bdname, tjdate) {
+            $.getJSON("../handler/Zhgl/DdTongji.ashx", { type: 1, gdtype: 1, bdid: bdid, tjdate: tjdate }, function (data) {
+                for (var u = 0; u < data.length; u++) {
+                    data[u].标段 = bdname;
+                    data[u].标段ID = bdid;
+                }
+                qiaolist.push(data);
+
+                if (data.length > 0) {
+                    for (var j = 0; j < data.length; j++) {
+                        qiaoObject.weeksum += data[j].周累数量 != "" ? parseInt(data[j].周累数量) : 0; //周累数量
+                        qiaoObject.monthsum += data[j].月累数量 != "" ? parseInt(data[j].月累数量) : 0; //月累数量
+                        qiaoObject.seasonsum += data[j].季累数量 != "" ? parseInt(data[j].季累数量) : 0; //季累数量
+                        qiaoObject.yearsum += data[j].年累数量 != "" ? parseInt(data[j].年累数量) : 0; //年累数量
+                        qiaoObject.startsum += data[j].开累数量 != "" ? parseInt(data[j].开累数量) : 0; //开累数量
+                        qiaoObject.totalsum += data[j].总量 != "" ? parseInt(data[j].总量) : 0; //总量
+
+                        qiaoObject.surplussum += data[j].剩余数量 != "" ? parseInt(data[j].剩余数量) : 0; //剩余数量
+                    }
+                }
+            });
+        }
+        //---------------------------------------------------------------------------------------------------------------------
+        //获取所有标段的路基数据
+        //---------------------------------------------------------------------------------------------------------------------
+        function lujiBd(bdid, bdname, tjdate) {
+            $.getJSON("../handler/Zhgl/DdTongji.ashx", { type: 1, gdtype: 3, bdid: bdid, tjdate: tjdate }, function (data) {
+                for (var u = 0; u < data.length; u++) {
+                    data[u].标段 = bdname;
+                    data[u].标段ID = bdid;
+                }
+                lujilist.push(data);
+                if (data.length > 0) {
+                    for (var j = 0; j < data.length; j++) {
+                        lujiObject.weeksum += data[j].周累量 != "" && data[j].周累量 != ".00" ? parseInt(data[j].周累量) : 0; //周累数量
+                        lujiObject.monthsum += data[j].月累量 != "" && data[j].月累量 != ".00" ? parseInt(data[j].月累量) : 0; //月累数量
+                        lujiObject.seasonsum += data[j].季累量 != "" && data[j].季累量 != ".00" ? parseInt(data[j].季累量) : 0; //季累数量
+                        lujiObject.yearsum += data[j].年累量 != "" && data[j].年累量 != ".00" ? parseInt(data[j].年累量) : 0; //年累数量
+                        lujiObject.startsum += data[j].开累量 != "" && data[j].开累量 != ".00" ? parseInt(data[j].开累量) : 0; //开累数量
+                        lujiObject.totalsum += data[j].总量 != "" && data[j].总量 != ".00" ? parseInt(data[j].总量) : 0; //总量
+                        lujiObject.surplussum += data[j].剩余量 != "" && data[j].剩余量 != ".00" ? parseInt(data[j].剩余量) : 0; //剩余数量
+                        lujiObject.len += data[j].长度 != "" && data[j].长度 != ".00" ? parseInt(data[j].长度) : 0; //剩余数量
+                    }
+                }
+            });
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------
+        //获取所有标段的隧道数据
+        //---------------------------------------------------------------------------------------------------------------------
+        function suidaoBd(bdid, bdname, tjdate) {
+            $.getJSON("../handler/Zhgl/DdTongji.ashx", { type: 1, gdtype: 2, bdid: bdid, tjdate: tjdate }, function (data) {
+                for (var u = 0; u < data.length; u++) {
+                    data[u].标段 = bdname;
+                    data[u].标段ID = bdid;
+                }
+                shuidaolist.push(data);
+                if (data.length > 0) {
+                    for (var j = 0; j < data.length; j++) {
+                        suidaoObject.weeksum += data[j].周累完成 != "" && data[j].周累完成 != ".00" ? parseInt(data[j].周累完成) : 0; //周累数量
+                        suidaoObject.monthsum += data[j].月累完成 != "" && data[j].月累完成 != ".00" ? parseInt(data[j].月累完成) : 0; //月累数量
+                        suidaoObject.seasonsum += data[j].季累完成 != "" && data[j].季累完成 != ".00" ? parseInt(data[j].季累完成) : 0; //季累数量
+                        suidaoObject.yearsum += data[j].年累完成 != "" && data[j].年累完成 != ".00" ? parseInt(data[j].年累完成) : 0; //年累数量
+                        suidaoObject.startsum += data[j].开累完成 != "" && data[j].开累完成 != ".00" ? parseInt(data[j].开累完成) : 0; //开累数量
+                        suidaoObject.surplussum += data[j].剩余 != "" && data[j].剩余 != ".00" ? parseInt(data[j].剩余) : 0; //剩余数量
+                        suidaoObject.len += data[j].设计长度 != "" && data[j].设计长度 != ".00" ? parseInt(data[j].设计长度) : 0; //剩余数量
+                    }
+                }
+            });
+        }
+        //---------------------------------------------------------------------------------------------------------------------
+        //获取所有标段的桥汇总数据
+        //---------------------------------------------------------------------------------------------------------------------
+        function qiaoBd_huizong() {
+            var weeksum = 0; //周累数量
+            var monthsum = 0; //月累数量
+            var seasonsum = 0; //季累数量
+            var yearsum = 0; //年累数量
+            var startsum = 0; //开累数量
+            var totalsum = 0; //总量
+            var surplussum = 0; //剩余数量
+            if (qiaolist.length > 0) {
+                unit = qiaolist[0][0].单位;
+                for (var i = 0; i < qiaolist.length; i++) {
+                    if (qiaolist[i].length > 0) {
+                        for (var j = 0; j < qiaolist[i].length; j++) {
+                            weeksum += qiaolist[i][j].周累数量 != "" ? parseInt(qiaolist[i][j].周累数量) : 0; //周累数量
+                            monthsum += qiaolist[i][j].月累数量 != "" ? parseInt(qiaolist[i][j].月累数量) : 0; //月累数量
+                            seasonsum += qiaolist[i][j].季累数量 != "" ? parseInt(qiaolist[i][j].季累数量) : 0; //季累数量
+                            yearsum += qiaolist[i][j].年累数量 != "" ? parseInt(qiaolist[i][j].年累数量) : 0; //年累数量
+                            startsum += qiaolist[i][j].开累数量 != "" ? parseInt(qiaolist[i][j].开累数量) : 0; //开累数量
+                            totalsum += qiaolist[i][j].总量 != "" ? parseInt(qiaolist[i][j].总量) : 0; //总量
+                            surplussum += qiaolist[i][j].剩余数量 != "" ? parseInt(qiaolist[i][j].剩余数量) : 0; //剩余数量
+                        }
+                    }
+                }
+
+            }
+        }
+
+        function openjj() {
+            window.location.href = 'projectintroduce.html';
+        }
+
+
+    </script>
+    <style type="text/css">
+        img.small {
+            width: 24px;
+            height: 24px;
+        }
+
+        img.large {
+            width: 80%;
+            height: 36px;
+            max-width: 500px;
+        }
+
+        span.center_black_middlefont {
+            text-align: center;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        div.center_black_middlefont {
+            text-align: left;
+            color: #000000;
+            font-size: 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <div style="width:100%;  background-color:#353535; padding:0px;">
+        <img src="images/index/index-head.png" style="width:100%; "
+             onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/projectintroduce.html', 2, '')"/>
+        <div style="height:15px;  margin:0px 0px 0px 0px; width:100%; background-color:#e9edf1;"></div>
+        <ul style="background-color:#fff;">
+            <li style="height:60px; line-height:60px; border-top:1px solid #e9edf1;vertical-align:middle;"
+                onclick="tongji_function(1)">
+                <div style="float:left;width:12%;padding-left:3%;"><img src="images/总体进度.png"
+                                                                        class="large"
+                                                                        style="float:left;margin-top:12px;"/>
+                </div>
+                <div style="float:left;width:78%;padding-top:10px;padding-bottom:10px;">
+                    <div style="height:20px; line-height:20px;" class="center_black_middlefont">
+                        全线进度
+                    </div>
+                    <div id="totaltext"
+                         style="height:20px; line-height:20px;  text-align:left; font-size:10px; color: rgba(72, 74, 76, 0.58); font-weight:500; "></div>
+                </div>
+                <div style="float:left;width:6%;height:60px;">
+                    <img src="images/更多.png"
+                         style="width:20px;height:20px; margin:0px;margin-top:20px;"/>
+                </div>
+            </li>
+            <li style="height:60px; line-height:60px; border-top:1px solid #e9edf1;vertical-align:middle;"
+                onclick="tongji_function(2)">
+                <div style="float:left;width:12%;padding-left:3%;"><img src="images/今日.png"
+                                                                        class="large"
+                                                                        style="float:left;margin-top:12px;"/>
+                </div>
+                <div style="float:left;width:78%;padding-top:10px;padding-bottom:10px;">
+                    <div style="height:20px; line-height:20px;" class="center_black_middlefont">
+                        当年进度
+                    </div>
+                    <div id="yeartext"
+                         style="height:20px; line-height:20px;  text-align:left; font-size:10px; color: rgba(72, 74, 76, 0.58); font-weight:500; ">
+                        桥梁99米 路基15米 隧道31米
+                    </div>
+                </div>
+                <div style="float:left;width:6%;height:60px;">
+                    <img src="images/更多.png"
+                         style="width:20px;height:20px; margin:0px;margin-top:20px;"/>
+                </div>
+            </li>
+            <li style="height:60px; line-height:60px; border-top:1px solid #e9edf1;vertical-align:middle;"
+                onclick="tongji_function(3)">
+                <div style="float:left;width:12%;padding-left:3%;"><img src="images/月进度.png"
+                                                                        class="large"
+                                                                        style="float:left;margin-top:12px;"/>
+                </div>
+                <div style="float:left;width:78%;padding-top:10px;padding-bottom:10px;">
+                    <div style="height:20px; line-height:20px; " class="center_black_middlefont">
+                        本月进度
+                    </div>
+                    <div id="monthtext"
+                         style="height:20px; line-height:20px;  text-align:left; font-size:10px; color: rgba(72, 74, 76, 0.58); font-weight:500; ">
+                        桥梁31000米 路基3805米 隧道809米
+                    </div>
+                </div>
+                <div style="float:left;width:6%;height:60px;">
+                    <img src="images/更多.png"
+                         style="width:20px;height:20px; margin:0px;margin-top:20px;"/>
+                </div>
+            </li>
+            <li style="height:60px; line-height:60px; border-top:1px solid #e9edf1;vertical-align:middle;"
+                onclick="tongji_function(4)">
+                <div style="float:left;width:12%;padding-left:3%;"><img src="images/周进度.png"
+                                                                        class="large"
+                                                                        style="float:left;margin-top:12px;"/>
+                </div>
+                <div style="float:left;width:78%;padding-top:10px;padding-bottom:10px;">
+                    <div style="height:20px; line-height:20px;" class="center_black_middlefont">
+                        本周进度
+                    </div>
+                    <div id="weektext"
+                         style="height:20px; line-height:20px;  text-align:left; font-size:10px; color: rgba(72, 74, 76, 0.58); font-weight:500; ">
+                        桥梁1160米 路基85米 隧道109米
+                    </div>
+                </div>
+                <div style="float:left;width:6%;height:60px;">
+                    <img src="images/更多.png"
+                         style="width:20px;height:20px; margin:0px;margin-top:20px;"/>
+                </div>
+            </li>
+
+
+        </ul>
+        <div style="height:15px;  margin:0px 0px 0px 0px; width:100%; background-color:#e9edf1;"></div>
+    </div>
+    <div id="zd_context" class="main_list">
+        <ul>
+            <li style="width:100%;margin:0px;border-bottom: 1px solid #f4f4f4;">
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height:36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=1', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/新闻动态.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">新闻动态</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height:36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=101', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/通知公告.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">通知公告</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=11', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/现场风采.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">现场风采</span>
+                </div>
+            </li>
+
+
+            <li style="width:100%;margin:0px;border-bottom: 1px solid #f4f4f4;">
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=2', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/工作简报.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">工作简报</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=6', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/工程月报.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">工程月报</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/yd/News/html-TSDI-YangDa/mobile/index.html?typeid=102', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/电子画册.png" class="small" style="padding-top:30px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">电子画册</span>
+                </div>
+            </li>
+            <li style="width:100%;margin:0px;border-bottom: 1px solid #f4f4f4;">
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=3', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/周例会.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">周例会</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;border-right: 1px solid #f4f4f4;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/RIMServer/newslist.html?typeid=4', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/月例会.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">月例会</span>
+                </div>
+                <div style="float: left; text-align: center; margin: 0 auto; width: 33%; height: 100px;line-height: 36px;"
+                     onclick="window.AndroidObject.startActivity('http://192.168.4.4/ydcs/XMFiles/Information/Phone/阳大铁路人员联系单.htm?typeid=100', 2, '')">
+                    <div style="width: 100%;height:50px;">
+                        <button>
+                            <img src="images/index/通讯录.png" class="small" style="padding-top:25px;"
+                                 alt=""/>
+                        </button>
+                    </div>
+                    <span class="center_black_middlefont">通讯录</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

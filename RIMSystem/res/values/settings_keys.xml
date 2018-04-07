@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_units">key_units</string>
+    <string name="key_websearch">key_websearch</string>
+    <string name="key_websearch_url">key_websearch_url</string>
+    <string name="key_navigation_buttons">key_navigation_buttons</string>
+    <string name="key_underground_button">key_underground_button</string>
+    <string name="key_my_position">key_my_position</string>
+    <string name="key_gps_trail">key_gps_trail</string>
+    <string name="key_sunlight">viewSun</string>
+    <string name="key_menubutton_slide_right">key_menubutton_slide_right</string>
+    <string name="key_menubutton_slide_up">key_menubutton_slide_up</string>
+</resources>

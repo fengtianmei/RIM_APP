@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skyline.terraexplorer.views.RoundBorderClippedFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/tool_container_wrapper"
+        android:layout_width="@dimen/tool_container_width"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/button_padding"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/tool_container_upper_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tool_container_top_panel_height"
+            android:background="#d7323232">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tool_container_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample\r\nsample\r\nsample\r\nsample\r\nsample"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/font_size_normal"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="@dimen/button_padding"
+                    android:paddingRight="@dimen/button_padding" />
+            </ScrollView>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_width"
+                android:layout_alignParentBottom="true"
+                android:background="@color/border_color" />
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:scrollbars="horizontal"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/tool_container_lower_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_size"
+                android:background="@color/color_control_background"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</com.skyline.terraexplorer.views.RoundBorderClippedFrameLayout>

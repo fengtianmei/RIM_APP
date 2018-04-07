@@ -1,0 +1,11 @@
+﻿<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/main_menu_padding_v"
+        android:right="@dimen/main_menu_padding_v"
+        android:top="@dimen/main_menu_padding_v"
+        android:bottom="@dimen/main_menu_padding_v">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_control_background_press" />
+        </shape>
+    </item>
+</layer-list>

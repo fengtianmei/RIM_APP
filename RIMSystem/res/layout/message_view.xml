@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_view_background"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/message_view_toggle_button"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/color_control_background">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:rotation="90"
+            android:src="@drawable/back"
+            android:contentDescription="@null"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <WebView
+        android:id="@+id/message_view_web_view"
+        android:layout_margin="@dimen/default_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+

@@ -1,0 +1,32 @@
+<PseudoColors>
+    <Caption>Slope1</Caption>
+    <GUID>A3BB1673-D8F4-4455-9529-A303A034FCEB</GUID>
+    <Range>
+        <Max>45</Max>
+        <Min>0</Min>
+    </Range>
+    <Data>
+        <Num>5</Num>
+        <Node>
+            <Val>45</Val>
+            <Color>F00000</Color>
+        </Node>
+        <Node>
+            <Val>31</Val>
+            <Color>FFF000</Color>
+        </Node>
+        <Node>
+            <Val>17</Val>
+            <Color>00FF00</Color>
+        </Node>
+        <Node>
+            <Val>6</Val>
+            <Color>0000FF</Color>
+        </Node>
+        <Node>
+            <Val>0</Val>
+            <Color>00FFFF</Color>
+        </Node>
+    </Data>
+    <Deg></Deg>
+</PseudoColors>

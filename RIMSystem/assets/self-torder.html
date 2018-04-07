@@ -1,0 +1,68 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Skyline JS EX</title>
+    <script type="text/javascript">
+/**
+ *
+ *初始化页面，加载工程，监听工程加载完毕事件
+ *
+ */
+function Init() {
+    try {
+        //fly文件路径
+        //var flyPath = 'F:\\yd\\DefaultMobile.fly';
+//var flyPath = 'http://101.201.72.138:8083/skyline/地铁.fly';
+var flyPath = "http://192.168.4.4/ydcs/XMFiles/UploadFlys/jsjd.fly";
+
+        //添加onloadFinished事件
+
+        SGWorld66.AttachEvent("OnLoadFinished", OnProjectLoadFinished);
+        //打开工程
+
+        SGWorld66.Project.Open(flyPath);
+
+    }
+    catch (e) {
+        alert("Error: " + e.description);
+    }
+}
+/**
+ *
+ *onloadFinished事件方法
+ *
+ */
+function OnProjectLoadFinished() {
+    //创建位置
+    var China = SGWorld66.Creator.CreatePosition(112.46212296451202,32.02717019165982,12946949.476816356,0,352,-90);
+    //相机定位到声明的位置
+    SGWorld66.Navigate.FlyTo(China);
+}
+/**
+ *
+ *鼠标移动事件
+ *
+ */
+<!--function OnMouseMoved(){-->
+    <!--//获取相机当前位置信息-->
+	<!--var current = SGWorld65.Navigate.GetPosition();-->
+    <!--//在消息栏显示出相机相关信息-->
+    <!--SGWorld65.Window.ShowMessageBarText("X:" + current.X +"  Y:" +  current.Y + "  Z:" + current.Altitude + "Yaw:" +-->
+<!--current.Yaw);-->
+<!--}-->
+
+    </script>
+</head>
+<body onload="Init()">
+<!--定义一个TerraExplorer 3D窗口对象-->
+<OBJECT ID="TerraExplorerInformationWindow" CLASSID="CLSID:3a4f9193-65a8-11d5-85c1-0001023952c1"
+        style="float:left;width: 20%;height:100%"></OBJECT>
+<object id="TE" classid="clsid:3a4f9192-65a8-11d5-85c1-0001023952c1"
+        style="float:left;width: 80%;height:100%"></object>
+
+<!--定义TerraExplorer对象SGWorld65-->
+<object ID="SGWorld66" classid="CLSID:3a4f9199-65a8-11d5-85c1-0001023952c1"
+        style="visibility:hidden;height:0 "></object>
+
+
+</body>
+</html>

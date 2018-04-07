@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.skyline.terraexplorer.views.TEView
+        android:id="@+id/main_teview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.skyline.terraexplorer.views.TEView>
+    <!--<ImageButton-->
+    <!--android:layout_width="@dimen/button_size"-->
+    <!--android:layout_height="@dimen/button_size"-->
+    <!--android:id="@+id/mainButton"-->
+    <!--android:background="@drawable/control_with_border"-->
+    <!--android:contentDescription="@string/main_button"-->
+    <!--android:src="@drawable/main"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_marginLeft="@dimen/main_button_margin"-->
+    <!--android:layout_marginBottom="@dimen/main_button_margin"-->
+    <!--android:scaleType="fitCenter"-->
+    <!--android:padding="@dimen/button_padding"-->
+    <!-->-->
+    <!--</ImageButton>-->
+    <!--<com.skyline.terraexplorer.views.MainMenuView android:id="@+id/main_menu"-->
+    <!--android:layout_width="@dimen/main_menu_width" android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_marginLeft="@dimen/main_button_margin"-->
+    <!--android:layout_marginBottom="@dimen/main_button_margin"-->
+    <!--/>-->
+    <RelativeLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_portrait"
+            android:scaleType="centerInside"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加载中。。。。"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <!--<com.skyline.terraexplorer.views.MessageView-->
+    <!--android:id="@+id/main_message_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--/>-->
+</RelativeLayout>

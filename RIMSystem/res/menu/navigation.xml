@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!-- activity_main底部工具栏-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dongtai_home"
+        android:icon="@drawable/ic_dongtai_black_24dp"
+        android:title="@string/dongtai_home" />
+
+    <item
+        android:id="@+id/xcgl_work"
+        android:icon="@drawable/ic_xcgl_black_24dp"
+        android:title="@string/xcgl_work" />
+
+    <item
+        android:id="@+id/skyline_bim"
+        android:icon="@drawable/ic_3d_black_24dp"
+        android:title="@string/skyline_bim" />
+
+    <item
+        android:id="@+id/account_setting"
+        android:icon="@drawable/ic_account_black_24dp"
+        android:title="@string/account_setting" />
+</menu>
